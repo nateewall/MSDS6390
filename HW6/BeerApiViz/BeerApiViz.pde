@@ -1,32 +1,27 @@
 JSONArray json;
-static final int CANVAS_WIDTH = 1000;
-static final int CANVAS_HEIGHT = 800;
+PImage bg;
+int CANVAS_WIDTH;
+int CANVAS_HEIGHT;
 BeerConnector connector;
-
 
 void settings()
 {
+  bg = loadImage("New-England-IPA.jpg");
+  CANVAS_WIDTH = bg.width;
+  CANVAS_HEIGHT = bg.height;
   size(CANVAS_WIDTH, CANVAS_HEIGHT);
   connector = new BeerConnector();
 }
 
-String[] breweryType;
-
-void findBreweries()
-{
-  json = connector.loadBeer("?by_name=cooper");
-  //JSONArray breweries = json.getJSONArray("results");
-  int breweriesSize =  json.size();
-  breweryType = new String[breweriesSize];
-  for(int i = 0; i < breweriesSize; i++){
-    JSONObject brewery = json.getJSONObject(i);
-    breweryType[i] = brewery.getString("brewery_type");
-    print(brewery.getString("brewery_type"));
-  }
-  //print(breweryType);
-}
-
 void setup()
 {
+  background(bg);
+  //print('loading Raleigh Breweries');
   findBreweries();
+}
+
+void draw()
+{
+  drawBreweries();
+  drawBrewtypes();
 }
