@@ -12,7 +12,6 @@ class BeerConnector
     {
       request = request.replace(BASE_URL, "");
     }
-    //JSONObject jsonObject = null;
     JSONArray jsonArray = null;
     try
     {
@@ -22,9 +21,6 @@ class BeerConnector
       connection.setRequestProperty("Accept", "application/json" );
       
       String[] results = loadStrings(connection.getInputStream()); 
-      //print(results[0]);
-      //print(results.type)
-      //JSONArray jsonArray = new JSONArray(results[0]);
       jsonArray = parseJSONArray(results[0]);
     } catch(Exception e)
     {

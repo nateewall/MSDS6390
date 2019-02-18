@@ -10,12 +10,20 @@ void settings()
   connector = new BeerConnector();
 }
 
+String[] breweryType;
+
 void findBreweries()
 {
   json = connector.loadBeer("?by_name=cooper");
   //JSONArray breweries = json.getJSONArray("results");
   int breweriesSize =  json.size();
-  print(breweriesSize);
+  breweryType = new String[breweriesSize];
+  for(int i = 0; i < breweriesSize; i++){
+    JSONObject brewery = json.getJSONObject(i);
+    breweryType[i] = brewery.getString("brewery_type");
+    print(brewery.getString("brewery_type"));
+  }
+  //print(breweryType);
 }
 
 void setup()
