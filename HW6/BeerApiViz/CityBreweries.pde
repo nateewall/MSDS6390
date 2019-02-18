@@ -7,7 +7,7 @@ boolean[] hovered;
 
 void findBreweries()
 {
-  json = connector.loadBeer("?by_city=Asheville");
+  json = connector.loadBeer("?by_city=Raleigh");
   int breweriesSize =  json.size();
   // set up arrays for to build from API response
   breweryType = new String[breweriesSize];
@@ -28,6 +28,6 @@ void findBreweries()
     //get the box positioning for the breweries
     int yPosition = (int)map(i, 0, brewName.length - 1, CANVAS_HEIGHT / 2 - 350, CANVAS_HEIGHT / 2 + 350);
     brewPosition[i] = new PVector(50, yPosition);
-    
+    hovered[i] = false;  
   }
 }

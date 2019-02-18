@@ -24,4 +24,13 @@ void draw()
 {
   drawBreweries();
   drawBrewtypes();
+  drawConnections();
+}
+
+void mouseMoved()
+{
+  for(int i = 0; i < hovered.length; i++)
+   {
+     hovered[i] = false;
+   }
 }
