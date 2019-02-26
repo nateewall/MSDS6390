@@ -1,16 +1,16 @@
 // Class for animating a pngs
-class BreakdanceMario {
+class ToaderLoad{
   PImage[] images;
   int imageCount;
   int frame;
   
-  BreakdanceMario (String imagePrefix, int count) {
+  ToaderLoad (String imagePrefix, int count) {
     imageCount = count;
     images = new PImage[imageCount];
 
     for (int i = 0; i < imageCount; i++) {
       // Use nf() to number format 'i' into four digits
-      String filename = imagePrefix + i + ".png";
+      String filename = imagePrefix + i + ".gif";
       images[i] = loadImage(filename);
     }
   }

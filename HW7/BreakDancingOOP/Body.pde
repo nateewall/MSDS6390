@@ -1,22 +1,23 @@
-class Body {
+
+class ToadsWatching {
+  PImage image;
   
-  //private BreakdanceMario mario ;
+  ToadsWatching()
+  {
+    image = new PImage();
+    image = loadImage("Toads.png");
+  }
   
-  //public Body() {
-  //  super();
-  //  mario = new BreakdanceMario("Mario", 8);
-  //}
+  public void display(float xpos, float ypos) {
+    image(image, xpos, ypos);
+  }
   
-  //public void createMario(float xpos, float ypos){
-  //  frameRate(10);
-  //  mario.display(xpos-mario.getWidth()/2, ypos-mario.getHeight()/2);
-  //  //mario.animate();
-  //}
+  int getWidth() {
+    return image.width;
+  }
   
-  
-  
-  //////public void animateMario(xpos){
-  //////  if (mouseX > bx-boxSize && mouseX < bx+boxSize && mouseY > by-boxSize && mouseY < by+boxSize)
-  //////}
-  
+  int getHeight() {
+    return image.height;
+  }
+    
 }
