@@ -33,23 +33,20 @@ void setup() {
   mario2 = new BreakdanceMario("Mario", 8);
   toads = new ToadsWatching();
   toaderload = new ToaderLoad("ToadOverload", 21);
+  background(2, 171, 11);
 }
 
 void draw() {
+ background(2, 171, 11);
  if (mouseX > mario1PosX-mario1.getWidth()/2 && mouseX < mario1PosX+mario1.getWidth()/2 && mouseY > mario1PosY-mario1.getHeight()/2 && mouseY < mario1PosY+mario1.getHeight()/2) 
  {
   mario1Height = mario1PosY-mario1.getHeight()/2;
   mario1.display(mario1PosX-mario1.getWidth()/2, mario1PosY-mario1.getHeight()/2);
   toads.display(mario1PosX - toads.getWidth()/2, mario1PosY - mario1Height - toadSet);
   over1 = true;
-  if(goCrazy) 
-  {
-    toaderload.display(mario2PosX-toaderload.getWidth()/2, mario2PosY-toaderload.getHeight()/2);
-  }
  }
  else
  {
- background(2, 171, 11);
  mario1.getFirstImage(mario1PosX-mario1.getWidth()/2, mario1PosY-mario1.getHeight()/2);
  over1 = false;
  }
@@ -60,18 +57,25 @@ void draw() {
   mario2.display(mario2PosX-mario2.getWidth()/2, mario2PosY-mario2.getHeight()/2);
   toads.display(mario2PosX - toads.getWidth()/2, mario2PosY - mario2Height - toadSet);
   over2 = true;
-  if(goCrazy) 
-  {
-    toaderload.display(mario1PosX-toaderload.getWidth()/2, mario1PosY-toaderload.getHeight()/2);
-  }
  }
  else
  {
-   //background(2, 171, 11);
-   //mario1.getFirstImage(mario1PosX-mario1.getWidth()/2, mario1PosY-mario1.getHeight()/2);
    mario2.getFirstImage(mario2PosX-mario2.getWidth()/2, mario2PosY-mario2.getHeight()/2);
    over2 = false;
  }
+  if(over1){
+    if(goCrazy) 
+    {
+      toaderload.display(mario2PosX-toaderload.getWidth()/2, mario2PosY-toaderload.getHeight()/2);
+    }
+  }
+  if(over2){
+    if(goCrazy) 
+    {
+      toaderload.display(mario1PosX-toaderload.getWidth()/2, mario1PosY-toaderload.getHeight()/2);
+    }
+  }
+  
 }
 
 void mousePressed() {
