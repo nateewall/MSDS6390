@@ -2,6 +2,8 @@ Controller control;
 PImage USMap;
 Converter converter;
 ArrayList<Locations> locations;
+ArrayList<Beers> beers;
+String breweryId;
 
 void settings()
 {
@@ -16,6 +18,7 @@ void setup()
 {
   control = new Controller(this);
   locations = control.getLocations();
+  String breweryId = null;
 }
 
 
@@ -48,6 +51,7 @@ void draw()
     pushMatrix();
       text("ID: " + selectedLoc.getBreweryName(), 5, 15);
       text("Region: " + selectedLoc.getRegion(), 5, 30);
+      text("Location Type: " + selectedLoc.getLocationType(), 5, 45);
     popMatrix();
     fill(0);
     ellipse(x, y, diameter, diameter);
@@ -70,11 +74,15 @@ public void mouseMoved()
     if(distance <= 10)
     {
       l.setSelected(true);
+      breweryId =l.getBreweryId();
     }
   }
 }
 
-void mouseClicked()
+void mousePressed()
 {
-  //control.loadLocations("locations");
+  if(breweryId != null)
+  {
+    control.orderBeers(breweryId);
+  }
 }

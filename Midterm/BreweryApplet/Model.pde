@@ -3,6 +3,7 @@ class Model
  private static final String url = "http://api.brewerydb.com/v2/";
  private static final String apiKey = "d4d4ffc57e562d28bbd750b51fa61bf6";
  private ArrayList<Locations> locations;
+ private ArrayList<Beers> beers;
  
  private Controller control;
  
@@ -22,7 +23,18 @@ class Model
    println(locations.size() + " brewery locations returned.");
  }
  
- public void updateCoordinates(
+ public void orderBeers(String brewId)
+ {
+   beers = new ArrayList<Beers>();
+   JSONObject json = loadJSONObject(url+"brewery/"+brewId+"/beers/?key="+apiKey);
+   JSONArray jsonArray = json.getJSONArray("data");
+   for (int i = 0; i < jsonArray.size(); i++) {
+     JSONObject data = jsonArray.getJSONObject(i);
+     Beers b = new Beers(data);
+     beers.add(b);
+   }
+   println(beers.size() + " Beers returned.");
+ }
  
  public ArrayList<Locations> getLocations()
  {

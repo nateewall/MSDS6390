@@ -5,6 +5,7 @@ class Locations
   private float longitude;
   private float latitude;
   private String region;
+  private String locationType;
   
   PVector position;
   
@@ -15,6 +16,7 @@ class Locations
      latitude = data.getFloat("latitude");
      longitude = data.getFloat("longitude");
      region = data.getString("region");
+     locationType = data.getString("locationTypeDisplay");
      JSONObject brewery = data.getJSONObject("brewery");
      breweryName = brewery.getString("name");
      breweryId = brewery.getString("id");
@@ -24,6 +26,11 @@ class Locations
   public String getBreweryId()
   {
     return breweryId;
+  }
+  
+  public String getLocationType()
+  {
+    return locationType;
   }
   
   public PVector getPosition()

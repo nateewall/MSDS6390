@@ -23,6 +23,10 @@ class Controller
   //{
   //  model.loadLocations("locations");
   //}
+  public void orderBeers(String brewId)
+  {
+    model.orderBeers(brewId);
+  }
   
   public ArrayList<Locations> getLocations()
   {
