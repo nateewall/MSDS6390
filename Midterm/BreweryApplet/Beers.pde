@@ -3,10 +3,8 @@ class Beers
   private String beerName;
   private String beerId;
   private String abv;
-  private String styleName;
   private int styleId;
-  private String categoryName;
-  //private String icon;
+  private String createDate;
   
   private boolean selected;
   
@@ -15,13 +13,8 @@ class Beers
      beerName = data.getString("name");
      beerId = data.getString("id");
      abv = data.getString("abv");
-     //JSONObject labels = data.getJSONObject("labels");
-     //  icon = labels.getString("icon");
-     JSONObject style = data.getJSONObject("style");
-       styleName = style.getString("shortName");
-       styleId = style.getInt("id");
-       JSONObject category = style.getJSONObject("category");
-         categoryName = category.getString("name");
+     createDate = data.getString("createDate");
+
   }
   
   public String getBeerId()
@@ -45,14 +38,24 @@ class Beers
     return a;
   }
   
-  public String getStyleName()
+  public int getStyleId()
   {
-    return styleName;
+    return styleId;
   }
   
-  public String getCategoryName()
+  public String getCreateDate()
   {
-    return categoryName;
+    return createDate;
+  }
+  
+  public void setSelected(boolean b)
+  {
+    selected = b;
+  }
+  
+  public boolean isSelected()
+  {
+    return selected;
   }
   
 }

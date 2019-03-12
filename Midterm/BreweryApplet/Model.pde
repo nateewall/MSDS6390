@@ -33,6 +33,7 @@ class Model
      Beers b = new Beers(data);
      beers.add(b);
    }
+   control.updateBeers(beers);
    println(beers.size() + " Beers returned.");
  }
  
@@ -40,5 +41,11 @@ class Model
  {
    return locations;
  }
+ 
+ public ArrayList<Beers> getBeers()
+ {
+   return beers;
+ }
+ 
  
 }

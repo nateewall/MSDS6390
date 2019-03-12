@@ -23,6 +23,7 @@ class Controller
   //{
   //  model.loadLocations("locations");
   //}
+  
   public void orderBeers(String brewId)
   {
     model.orderBeers(brewId);
@@ -32,5 +33,16 @@ class Controller
   {
     return model.getLocations();
   }
+  
+  public void updateBeers(ArrayList<Beers> beers)
+  {
+    breweryView.updateBeers(beers);
+    beerView.updateBeers(beers);
+  }
+  
+ //public ArrayList<Beers> getBeers()
+ //{
+ //  return model.getBeers();
+ //}
   
 }

@@ -1,21 +1,46 @@
 class ViewBrewery extends PApplet
 {
   private Controller control;
+  private ArrayList<Beers> beers;
+  private String brewNames;
   
   public ViewBrewery(Controller _control)
   {
     control = _control;
+    beers = new ArrayList<Beers>();
   }
   
   public void settings()
   {
-    this.size(400,200);
-    
+    this.size(700, 400);
   }
   
   public void draw()
   {
-    this.background(0,255,0);
+    this.background(89, 147, 242);
+    wordCloud();
+  }
+  
+  public void updateBeers(ArrayList<Beers> _beers)
+  {
+    beers = _beers;
+  }
+  
+  public void wordCloud(){
+    brewNames = null;
+    if(!beers.isEmpty())
+    {
+      for(Beers b: beers)
+      {
+        String beerName = b.getBeerName();
+        brewNames = brewNames + " " + beerName;
+      }
+      
+    // Pass in the words to draw.
+    WordCram wordcram = new WordCram(this).fromTextString(brewNames);
+    // Now we've created our WordCram, we can draw it:
+    wordcram.drawAll();
+    }
   }
 
 }

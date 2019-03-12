@@ -1,3 +1,5 @@
+import wordcram.*;
+
 Controller control;
 PImage USMap;
 Converter converter;
@@ -49,7 +51,7 @@ void draw()
     float x = selectedXY.x;
     float y = selectedXY.y;
     pushMatrix();
-      text("ID: " + selectedLoc.getBreweryName(), 5, 15);
+      text("ID: " + selectedLoc.getBreweryId(), 5, 15);
       text("Region: " + selectedLoc.getRegion(), 5, 30);
       text("Location Type: " + selectedLoc.getLocationType(), 5, 45);
     popMatrix();
@@ -84,5 +86,6 @@ void mousePressed()
   if(breweryId != null)
   {
     control.orderBeers(breweryId);
+    //beers = control.getBeers();
   }
 }
