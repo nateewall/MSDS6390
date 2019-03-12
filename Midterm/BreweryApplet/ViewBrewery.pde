@@ -13,8 +13,9 @@ class ViewBrewery extends PApplet
   public void settings()
   {
     this.size(700, 400);
+    randomSeed(0);
   }
-  
+
   public void draw()
   {
     this.background(89, 147, 242);
@@ -26,7 +27,7 @@ class ViewBrewery extends PApplet
     beers = _beers;
   }
   
-  public void wordCloud(){
+  private void wordCloud(){
     brewNames = null;
     if(!beers.isEmpty())
     {

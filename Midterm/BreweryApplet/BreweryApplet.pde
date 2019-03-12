@@ -81,11 +81,10 @@ public void mouseMoved()
   }
 }
 
-void mousePressed()
+void mouseClicked()
 {
   if(breweryId != null)
   {
     control.orderBeers(breweryId);
-    //beers = control.getBeers();
   }
 }

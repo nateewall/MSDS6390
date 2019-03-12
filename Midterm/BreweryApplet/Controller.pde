@@ -4,7 +4,7 @@ class Controller
   private PApplet mainView;
   private ViewBrewery breweryView;
   private ViewBeers beerView;
-  
+  private String selectedBrewery;
   public Controller(PApplet _mainView)
   {
     
@@ -24,9 +24,9 @@ class Controller
   //  model.loadLocations("locations");
   //}
   
-  public void orderBeers(String brewId)
+  public void orderBeers(String breweryId)
   {
-    model.orderBeers(brewId);
+    model.orderBeers(breweryId);
   }
   
   public ArrayList<Locations> getLocations()
@@ -40,9 +40,19 @@ class Controller
     beerView.updateBeers(beers);
   }
   
- //public ArrayList<Beers> getBeers()
- //{
- //  return model.getBeers();
- //}
+  public void setSelectedBrewery(String breweryId)
+  {
+    selectedBrewery = breweryId;
+  }
+  
+  public String getSelectedBrewery()
+  {
+    return selectedBrewery;
+  }
+  
+ public ArrayList<Beers> getBeers()
+ {
+   return model.getBeers();
+ }
   
 }
