@@ -44,4 +44,11 @@ class ViewBrewery extends PApplet
     }
   }
 
+  void mousePressed() {
+    noLoop();
+  }
+  
+  void mouseReleased() {
+    loop();
+  }
 }
