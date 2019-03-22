@@ -51,7 +51,7 @@ void draw()
     float x = selectedXY.x;
     float y = selectedXY.y;
     pushMatrix();
-      text("ID: " + selectedLoc.getBreweryId(), 5, 15);
+      text("Name: " + selectedLoc.getBreweryName(), 5, 15);
       text("Region: " + selectedLoc.getRegion(), 5, 30);
       text("Location Type: " + selectedLoc.getLocationType(), 5, 45);
     popMatrix();

@@ -51,7 +51,7 @@ class ViewBeers extends PApplet
           float abv = b.getAbv();
           abvs[i] = ((400-2*20)/15)*abv;
         }
-        catch(Exception e){abvs[i] = 400-2*20;}
+        catch(Exception e){abvs[i] = 0;}
         
         if(Y[i]>(height-2*margin-abvs[i])) {
           if(Y[i]-30>0){Y[i]-=30;} else{Y[i]=height-2*margin-abvs[i];} //grow each bar
@@ -60,7 +60,7 @@ class ViewBeers extends PApplet
         if((nX>(margin+0.5*horzstep-0.5*barwidth+horzstep*i))&(nX<(margin+0.5*horzstep-0.5*barwidth+horzstep*i+barwidth))&(nY>margin)&nY<(margin+abvs[i])){
           fill(0);
           text("Beer Name: " + label[i],300, height - 20 ); //label each bar
-          text("ABV: " + (abvs[i]/(400-2*20)/15) , 300, height - 8);
+          text("ABV: " + (abvs[i]/((400-2*20)/15)) , 300, height - 8);
         } else {
           fill(255);
         }
@@ -73,9 +73,12 @@ class ViewBeers extends PApplet
       //printArray(Y);
       //printArray(abvs);
       //printArray(label);
-      
+      strokeWeight(10);
+      line(0, (((400-2*20)/15)*4.4), width, (((400-2*20)/15)*4.4) );
+      text("Yuengling ABV: 4.4", 600, (((400-2*20)/15)*4.5)); 
     }
   }
+  
   
   void mouseClicked() {
     nX = mouseX;
