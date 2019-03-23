@@ -60,12 +60,9 @@ void draw() {
     {
       float diff = (racketPosition.x - ballPosition.x)/50;
       println(diff);
-      float rad = radians(135);
-      println(rad);
-      float angle = map(diff, -1, 1, -rad, rad);
-      println(angle);
-      println(5*cos(angle), 5*sin(angle));
-      myObjects.get(1).setVelocity(new PVector(5*cos(angle), 5*sin(angle)));
+      float rad = 5*PI/12;
+      float angle = diff*rad;
+      myObjects.get(1).setVelocity(new PVector(-5*sin(angle), -5*cos(angle)));
     }
     
     if (ballPosition.y > height){
