@@ -1,2 +1,3 @@
-# MSDS6390
-Git For MSDS 6390 Class
+## All corresponding files for Visualization of Information course
+
+All files in this repo are visualization completed in Processing/Java.
